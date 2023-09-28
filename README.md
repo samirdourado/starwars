@@ -34,3 +34,14 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+
+Olá, este é um teste técnico utilizando a api de planetas do Star Wars.
+
+Url da documentação da api: 
+```https://swapi.dev/documentation#planets```
+
+End point que estou utilizando ```https://swapi.dev/documentation#planets```
+
+Bibliotecas Utilizadas<br>
+Axios
