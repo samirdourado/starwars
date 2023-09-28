@@ -1,0 +1,17 @@
+$color-transparent: #00000085;
+$color-black: #000000;
+$color-white: #ffffff;
+$color-red: #DE1212;
+
+$text-font-primary: "Montserrat, Inter, Roboto, Arial, sans-serif";
+$text-font-seccond: "Lato, Inter, Roboto, Arial, sans-serif";
+
+@mixin text-style-font-0() {
+	font-size: 0.625rem;
+	font-family: "Inter";
+	font-weight: 300;
+	font-style: normal;
+	text-decoration: none;
+	text-transform: none;
+};
+

@@ -1,0 +1,10 @@
+@use "./abstracts" as *;
+
+body,
+input,
+button,
+textarea {
+    color: $color-grey-1;
+    font-family: $text-font-primary;
+    font-size: 1rem;
+};
