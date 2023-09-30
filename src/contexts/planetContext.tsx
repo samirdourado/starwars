@@ -8,15 +8,25 @@ interface Props {
 };
 
 interface planetProviderData {
-    planet: any[]
-    setPlanet: React.Dispatch<React.SetStateAction<never[]>>
-    getAllPlanets: () => Promise<any>
+    allPlanets: any[];
+    setAllPlanets: React.Dispatch<React.SetStateAction<never[]>>;
+    planet: any[];
+    setPlanet: React.Dispatch<React.SetStateAction<never[]>>;
+    searchText: string;
+    setSearchText: React.Dispatch<React.SetStateAction<string>>;
+    searchResult: null;
+    setSearchResult: React.Dispatch<React.SetStateAction<null>>
+    getAllPlanets: () => Promise<any>;
+    getEspecificPlanet: (name: string) => Promise<any>;
 };
 
 const planetContext = createContext<planetProviderData>({} as planetProviderData);
 
 export const PlanetProvider = ({ children }: Props) => {
+    const [allPlanets, setAllPlanets] = useState([]);
     const [planet, setPlanet] = useState([]);
+    const [searchText, setSearchText] = useState('');
+    const [searchResult, setSearchResult] = useState(null);
 
     useEffect(() => {
         getAllPlanets()
@@ -24,16 +34,32 @@ export const PlanetProvider = ({ children }: Props) => {
 
     const getAllPlanets = async () => {    
         const response = await apiPlanets.get(`/planets`)        
-        setPlanet(response.data)
+        setAllPlanets(response.data.results)
         return response.data
+    };
+
+    const getEspecificPlanet = async (idPlanet: string) => {
+        console.log(idPlanet)
+        
+        try {
+            const response = await apiPlanets.get(`/planets/${idPlanet}`)
+            setPlanet(response.data)
+            return response.data
+        } catch (error) {
+            
+        }
     };
 
 
     return (
         <planetContext.Provider
             value={{
-                getAllPlanets,
                 planet, setPlanet,
+                allPlanets, setAllPlanets,
+                searchText, setSearchText,
+                searchResult, setSearchResult,
+                getAllPlanets,
+                getEspecificPlanet,
             }}
         >
             { children }
@@ -44,6 +70,3 @@ export const PlanetProvider = ({ children }: Props) => {
 export const usePlanetContext = () => {
     return useContext(planetContext);
 };
-
-
-

@@ -7,9 +7,6 @@ import Footer from '@/components/footer';
 import Main from '@/components/containerMain';
 
 export default function Home() {
-
-  const { planet } = usePlanetContext();
-  console.log(planet)
   
   return (
     <section>

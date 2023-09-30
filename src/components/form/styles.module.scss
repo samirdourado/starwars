@@ -53,6 +53,10 @@
     color: $color-white;
     background-color: $color-red;
     cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
 };
 
 
@@ -66,5 +70,34 @@
 .formArea__footer > p {
     @include text-style-font-lato16-700;
     color: $color-white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px
+};
+
+.formArea__footer > select {
+    @include text-style-font-lato16-700;
+    color: $color-white;
+    background-color: transparent;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+};
+
+.formArea__footer > select > option {
+    @include text-style-font-lato16-700;
+    color: $color-black;
+    background-color: transparent;
+    border: none;    
+    gap: 8px;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
 };
 

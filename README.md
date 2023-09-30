@@ -45,3 +45,5 @@ End point que estou utilizando ```https://swapi.dev/documentation#planets```
 
 Bibliotecas Utilizadas<br>
 Axios
+React-icons
+React-hook-form
