@@ -1,0 +1,55 @@
+@use 'abstracts' as *;
+
+.container {
+    display: flex;
+    
+    background-color: $color-transparent;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 800px;
+    min-width: 300px;
+    
+
+    @media (max-width: 849px) {
+        flex-direction: column;
+        align-items: center;
+        width: 80%
+        
+    }
+    
+    @media (min-width: 850px) {
+        flex-direction: row;
+        max-height: 400px;
+        margin-left: 50px;
+    }
+};
+
+.plain {
+    object-fit: cover;
+    border-radius: 10px;
+
+    @media (max-width: 849px) {
+        width: 100%;
+        height: 188px;
+    }
+    
+    @media (min-width: 850px) {
+    }
+};
+
+.spaceship {
+    position: absolute;
+
+    @media (max-width: 849px) {
+        width:323px;
+        height: 229px;
+        left: 40%;
+        top: 350px;
+            
+    }
+    
+    @media (min-width: 850px) {
+        left: 20%;
+        top: 520px;        
+    }
+};

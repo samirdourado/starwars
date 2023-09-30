@@ -4,11 +4,12 @@ import Image from 'next/image';
 import '../scss/main.scss';
 import styles from './styles.module.scss'
 import Footer from '@/components/footer';
-
+import Main from '@/components/containerMain';
 
 export default function Home() {
 
   const { planet } = usePlanetContext();
+  console.log(planet)
   
   return (
     <section>
@@ -21,15 +22,7 @@ export default function Home() {
         className={styles.wall}
       />
       <Footer/>
-      <section className={styles.content}>
-        <Image
-          src='/images/logo-w.png'
-          alt='wallpaper'
-          width={320}
-          height={180}
-          priority          
-        />
-      </section>
+      <Main/>
     </section>
   )
 };

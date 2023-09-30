@@ -11,10 +11,18 @@
 
 .footer__infos {    
     @include text-style-font-footer;
+    
+    @media (max-width: 849px) {
+        display: none;
+    }
 };
 
 .footer__divider {    
     width: 3px;
     height: 44px;
     background-color: $color-black;
+    
+    @media (max-width: 849px) {
+        display: none;
+    }
 };

@@ -5,6 +5,8 @@ $color-transparent: #00000085;
 $color-black: #000000;
 $color-white: #ffffff;
 $color-red: #DE1212;
+$color-gray: #7D7D7D;
+
 
 $text-font-primary: 'Montserrat, Inter, Roboto, Arial, sans-serif';
 $text-font-seccond: 'Lato, Inter, Roboto, sans-serif';
@@ -13,6 +15,38 @@ $text-font-seccond: 'Lato, Inter, Roboto, sans-serif';
 	font-size: 0.875rem;
 	font-family: 'Lato';
 	font-weight: 500;
+	font-style: normal;
+	text-decoration: none;
+	text-transform: none;
+};
+@mixin text-style-font-lato14-400() {
+	font-size: 0.875rem;
+	font-family: 'Lato';
+	font-weight: 400;
+	font-style: normal;
+	text-decoration: none;
+	text-transform: none;
+};
+@mixin text-style-font-lato14-900() {
+	font-size: 0.875rem;
+	font-family: 'Lato';
+	font-weight: 900;
+	font-style: normal;
+	text-decoration: none;
+	text-transform: none;
+};
+@mixin text-style-font-lato16-700() {
+	font-size: 1rem;
+	font-family: 'Lato';
+	font-weight: 700;
+	font-style: normal;
+	text-decoration: none;
+	text-transform: none;
+};
+@mixin text-style-font-main() {
+	font-size: 1.25rem;
+	font-family: 'Montserrat';
+	font-weight: 400;
 	font-style: normal;
 	text-decoration: none;
 	text-transform: none;
