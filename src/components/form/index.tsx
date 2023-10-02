@@ -9,7 +9,7 @@ import { useForm } from 'react-hook-form';
 
 const Form = () => {
 
-    const { allPlanets, planet, getEspecificPlanet } = usePlanetContext();    
+    const { allPlanets, planet, getEspecificPlanet, getEspecificPlanetByPopulation } = usePlanetContext();    
     
     const { register, handleSubmit, formState: { errors }, reset } = useForm({
 
@@ -33,13 +33,12 @@ const Form = () => {
                 <div className={styles.formArea__footer}>
                     <p><IoOptionsOutline size={20}/>Filter</p>                    
                     
-                    <select>
+                    <select onChange={(evt) => getEspecificPlanet(evt.target.value)}>
                         <option id={'name'}>▼  Name</option>
                         {
                             allPlanets ? (
                                 allPlanets.map((data: any, i: any) => (
-                                    <option key={i} value={data.i}
-                                    // {...register('name')}
+                                    <option key={i} value={data.i}                                    
                                     >
                                         {data.name}
                                     </option>
@@ -47,14 +46,13 @@ const Form = () => {
                             ) : (<option>Carregando...</option>)
                         }
                     </select>
-                    {/* <p><MdKeyboardArrowDown size={20}/> Population</p> */}
-                    <select>
+
+                    <select onChange={(evt) => getEspecificPlanetByPopulation(evt.target.value)}>
                         <option id={'population'}>▼  Population</option>
                         {
                             allPlanets ? (
                                 allPlanets.map((data: any, i: any) => (
-                                    <option key={i} value={data.i} 
-                                    // {...register('population')}
+                                    <option key={i} value={data.i}
                                     >
                                         {data.population}
                                     </option>   

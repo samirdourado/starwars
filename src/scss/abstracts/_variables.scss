@@ -45,7 +45,7 @@ $text-font-seccond: 'Lato, Inter, Roboto, sans-serif';
 	text-transform: none;
 };
 @mixin text-style-font-montserrat14-400() {
-	font-size: 14px;
+	font-size: 0.875rem;
 	font-family: 'Montserrat';
 	font-weight: 400;
 	font-style: normal;
@@ -53,7 +53,7 @@ $text-font-seccond: 'Lato, Inter, Roboto, sans-serif';
 	text-transform: none;
 };
 @mixin text-style-font-montserrat14-500() {
-	font-size: 14px;
+	font-size: 0.875rem;
 	font-family: 'Montserrat';
 	font-weight: 500;
 	font-style: normal;
@@ -61,7 +61,7 @@ $text-font-seccond: 'Lato, Inter, Roboto, sans-serif';
 	text-transform: none;
 };
 @mixin text-style-font-montserrat14-700() {
-	font-size: 14px;
+	font-size: 0.875rem;
 	font-family: 'Montserrat';
 	font-weight: 700;
 	font-style: normal;
@@ -69,7 +69,7 @@ $text-font-seccond: 'Lato, Inter, Roboto, sans-serif';
 	text-transform: none;
 };
 @mixin text-style-font-montserrat18-900() {
-	font-size: 18px;
+	font-size: 1.125rem;
 	font-family: 'Montserrat';
 	font-weight: 900;
 	font-style: normal;

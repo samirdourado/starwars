@@ -29,6 +29,8 @@ bun dev
 
 Por padrão vai executar na porta [http://localhost:3000](http://localhost:3000) com seu navegador.
 
+## Utilizando as pesquisas
+Ao abrir o site uma requisição ja esta sendo disparada para alimentar os menus select, após esse carregamento é possivel buscar qualquer planeta daa saga Star Wars, escrevendo o nome do planeta ou escolhendo um nome no menu ou escolhendo por população.
 
 ## Dados sobre o projeto
 
