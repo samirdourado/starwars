@@ -17,7 +17,7 @@ const Form = () => {
     });
 
     const onFormSubmit = (formData: any) => {
-        console.log(formData)
+        // console.log(formData)
         getEspecificPlanet(formData.value)
     };
 
