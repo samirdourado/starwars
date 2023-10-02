@@ -1,5 +1,4 @@
 'use client'
-import { usePlanetContext } from '@/contexts/planetContext';
 import Image from 'next/image';
 import '../scss/main.scss';
 import styles from './styles.module.scss'

@@ -1,0 +1,115 @@
+@use 'abstracts' as *;
+
+.box {
+    width: 100%;
+    min-width: 355px;
+    max-width: 592px;
+    display: flex;
+    flex-direction: column;
+    // margin-left: 15px;
+    // margin-right: 15px;
+
+};
+
+.container {
+    width: 100%;
+    min-width: 355px;
+    max-width: 592px;
+    background-color: $color-white;    
+    border: none;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    // margin-left: 15px;
+    // margin-right: 15px;
+
+    @media (max-width: 849px) {
+        padding: 10px;
+    }
+
+    @media (min-width: 850px) {
+        padding: 25px;
+    }
+};
+
+.container__header {
+    width: 100%;
+    display: flex;
+    gap: 50px;
+    margin-bottom: 20px;
+};
+
+.container__header__leftPanel {    
+    display: flex;
+    gap: 10px;
+    align-items: center
+};
+
+.container__header__leftPanel > div > p {
+    @include text-style-font-montserrat14-400;
+    color: $color-black;    
+};
+
+.container__header__leftPanel > div > h2 {
+    @include text-style-font-montserrat18-900;
+    color: $color-black;    
+};
+
+.container__header__rightPanel {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+};
+
+.container__header__rightPanel > p {
+    @include text-style-font-montserrat14-700;
+    color: $color-black;
+    display: flex;
+    align-items: center;
+    // gap: 15px;
+};
+
+.container__header__rightPanel > p > span{
+    font-weight: 400;
+};
+
+.container__body {
+    width: 100%;
+    display: flex;
+    flex-direction: column;    
+    gap: 15px;
+    background-color: $color-gray2;
+    border-radius: 10px;
+    padding: 10px 15px;
+};
+
+.container__body > h2 {
+    @include text-style-font-montserrat14-700;
+    color: $color-black;
+    padding-bottom: 10px;
+    border-bottom: solid 1px $color-black;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+};
+
+.container__body > p {
+    @include text-style-font-montserrat14-400;
+    color: $color-black;    
+};
+
+.backButton {
+    @include text-style-font-montserrat14-500;
+    color: $color-white;
+    margin-right: 0;
+    margin-left: auto;
+
+    @media (max-width: 849px) {
+        margin-top: 35px;
+    }
+    
+    @media (min-width: 850px) {
+        margin-top: 50px;
+    }
+};

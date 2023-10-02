@@ -9,16 +9,17 @@ import { useForm } from 'react-hook-form';
 
 const Form = () => {
 
-    const { allPlanets, planet, getEspecificPlanet } = usePlanetContext();
-    // console.log(allPlanets.results)
+    const { allPlanets, planet, getEspecificPlanet } = usePlanetContext();    
     
     const { register, handleSubmit, formState: { errors }, reset } = useForm({
 
     });
 
     const onFormSubmit = (formData: any) => {
-        // console.log(formData)
-        getEspecificPlanet(formData.value)
+        let namePlanet = formData.value;
+        namePlanet = namePlanet.charAt(0).toUpperCase() + namePlanet.slice(1);
+        getEspecificPlanet(namePlanet);
+        // getEspecificPlanet(formData.value)
     };
 
     return (
@@ -32,8 +33,7 @@ const Form = () => {
                 <button type='submit'><AiOutlineSearch size={24}/> Search</button>
 
                 <div className={styles.formArea__footer}>
-                    <p><IoOptionsOutline size={20}/>Filter</p>
-                    {/* <p><MdKeyboardArrowDown size={20}/> Name</p> */}
+                    <p><IoOptionsOutline size={20}/>Filter</p>                    
                     
                     <select>
                         <option id={'name'}>▼  Name</option>

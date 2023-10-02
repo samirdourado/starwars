@@ -6,6 +6,7 @@ $color-black: #000000;
 $color-white: #ffffff;
 $color-red: #DE1212;
 $color-gray: #7D7D7D;
+$color-gray2: #909090;
 
 
 $text-font-primary: 'Montserrat, Inter, Roboto, Arial, sans-serif';
@@ -39,6 +40,38 @@ $text-font-seccond: 'Lato, Inter, Roboto, sans-serif';
 	font-size: 1rem;
 	font-family: 'Lato';
 	font-weight: 700;
+	font-style: normal;
+	text-decoration: none;
+	text-transform: none;
+};
+@mixin text-style-font-montserrat14-400() {
+	font-size: 14px;
+	font-family: 'Montserrat';
+	font-weight: 400;
+	font-style: normal;
+	text-decoration: none;
+	text-transform: none;
+};
+@mixin text-style-font-montserrat14-500() {
+	font-size: 14px;
+	font-family: 'Montserrat';
+	font-weight: 500;
+	font-style: normal;
+	text-decoration: none;
+	text-transform: none;
+};
+@mixin text-style-font-montserrat14-700() {
+	font-size: 14px;
+	font-family: 'Montserrat';
+	font-weight: 700;
+	font-style: normal;
+	text-decoration: none;
+	text-transform: none;
+};
+@mixin text-style-font-montserrat18-900() {
+	font-size: 18px;
+	font-family: 'Montserrat';
+	font-weight: 900;
 	font-style: normal;
 	text-decoration: none;
 	text-transform: none;
