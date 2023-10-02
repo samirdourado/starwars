@@ -1,6 +1,6 @@
 interface iPlanetData {
     planetInfo: any;
-    planetImage: string;
+    planetImage: string | null;
 };
 
 export default iPlanetData;

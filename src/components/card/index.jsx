@@ -26,7 +26,7 @@ const CardPlanet = () => {
                         <section className={styles.container__header}>
                             <div className={styles.container__header__leftPanel}>
                                 <Image
-                                    src={planet.planetImage}
+                                    src={planet.planetImage ? (planet.planetImage) : ('/images/no-image-found.png')}
                                     alt='wallpaper'
                                     width={82}
                                     height={82}

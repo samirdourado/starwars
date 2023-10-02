@@ -6,21 +6,21 @@
     background-color: $color-transparent;
     border-radius: 10px;
     width: 100%;
-    max-width: 800px;
-    min-width: 300px;
+    max-width: 50rem;
+    min-width: 18.75rem;
     
 
-    @media (max-width: 849px) {
+    @media (max-width: 53.0625rem) {
         flex-direction: column;
         align-items: center;
         width: 80%
         
     }
     
-    @media (min-width: 850px) {
+    @media (min-width: 53.125rem) {
         flex-direction: row;
-        max-height: 400px;
-        margin-left: 50px;
+        max-height: 25rem;
+        margin-left: 3.125rem;
     }
 };
 
@@ -28,12 +28,12 @@
     object-fit: cover;
     border-radius: 10px;
 
-    @media (max-width: 849px) {
+    @media (max-width: 53.0625rem) {
         width: 100%;
-        height: 188px;
+        height: 11.75rem;
     }
     
-    @media (min-width: 850px) {
+    @media (min-width: 53.125rem) {
         height: auto;
     }
 };
@@ -41,16 +41,16 @@
 .spaceship {
     position: absolute;
 
-    @media (max-width: 849px) {
-        width:323px;
-        height: 229px;
+    @media (max-width: 53.0625rem) {
+        width:20.1875rem;
+        height: 14.3125rem;
         left: 40%;
-        top: 350px;
+        top: 21.875rem;
             
     }
     
-    @media (min-width: 850px) {
+    @media (min-width: 53.125rem) {
         left: 20%;
-        top: 520px;        
+        top: 32.5rem;        
     }
 };

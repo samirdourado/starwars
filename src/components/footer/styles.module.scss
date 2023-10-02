@@ -6,23 +6,23 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 60px;
+    gap: 3.75rem;
 };
 
 .footer__infos {    
     @include text-style-font-footer;
     
-    @media (max-width: 849px) {
+    @media (max-width: 53.0625rem) {
         display: none;
     }
 };
 
 .footer__divider {    
-    width: 3px;
-    height: 44px;
+    width: 0.1875rem;
+    height: 2.75rem;
     background-color: $color-black;
     
-    @media (max-width: 849px) {
+    @media (max-width: 53.0625rem) {
         display: none;
     }
 };

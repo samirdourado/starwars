@@ -27,6 +27,7 @@ interface planetProviderData {
     setOnLoad: React.Dispatch<React.SetStateAction<boolean>>;
     getAllPlanets: () => Promise<any>;
     getEspecificPlanet: (name: string) => Promise<any>;
+    getEspecificPlanetByPopulation: (quantityOfPopulation: string) => Promise<iPlanetData | undefined>
     getResidentsFromPlanets: (allResidents: [string]) => void;
     getFilms: (allFilms: [string]) => Promise<any[]>;
 };
@@ -64,16 +65,48 @@ export const PlanetProvider = ({ children }: Props) => {
     const getEspecificPlanet = async (planetName: string) => {
         
         try {
-            let namePlanet = planetName;
-            namePlanet = namePlanet.charAt(0).toUpperCase() + namePlanet.slice(1);
+            let namePlanetUpper = planetName;
+            let namePlanetLower = planetName.toLowerCase();
 
-            const planetPositionArr = allPlanets.findIndex((elem: any, i: any) => elem.name == namePlanet);
+            namePlanetUpper = namePlanetUpper.charAt(0).toUpperCase() + namePlanetUpper.slice(1);
+
+            const imageLink = planetImages.find((data: string) => data.includes(namePlanetLower));
+            const planetPositionArr = allPlanets.findIndex((elem: any, i: any) => elem.name == namePlanetUpper);
             const numberOfPlanet = planetPositionArr + 1;
-            const response = await apiPlanets.get(`/planets/${numberOfPlanet}`);
+            const response = await apiPlanets.get(`/planets/${numberOfPlanet}`);            
 
             const planetData = {
                 planetInfo: response.data,
-                planetImage: planetImages[planetPositionArr]
+                planetImage: imageLink || null,                
+            };
+
+            toast.success('Carregando as informações');
+
+            setOnLoad(true);
+            setPlanet(planetData);
+
+            return planetData;
+        } catch (error) {            
+            toast.error('Nenhum planeta encontrado!')
+            console.log(error)
+        } finally {
+            setOnLoad(false);
+        };
+    };
+
+    const getEspecificPlanetByPopulation = async (quantityOfPopulation: string) => {
+        
+        try {
+            let quantityPopulation = quantityOfPopulation;
+            
+            const planetPositionArr = allPlanets.findIndex((elem: any, i: any) => elem.population == quantityPopulation);
+            const numberOfPlanet = planetPositionArr + 1;
+            const response = await apiPlanets.get(`/planets/${numberOfPlanet}`);
+            const imageLink = planetImages.find((data: string) => data.includes(response.data.name.toLowerCase()));            
+
+            const planetData = {
+                planetInfo: response.data,
+                planetImage: imageLink || null
             };
 
             toast.success('Carregando as informações');
@@ -135,6 +168,7 @@ export const PlanetProvider = ({ children }: Props) => {
                 onLoad, setOnLoad,
                 getAllPlanets,
                 getEspecificPlanet,
+                getEspecificPlanetByPopulation,
                 getResidentsFromPlanets,
                 getFilms,
             }}
