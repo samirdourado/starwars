@@ -38,7 +38,7 @@ const Form = () => {
                         {
                             allPlanets ? (
                                 allPlanets.map((data: any, i: any) => (
-                                    <option key={i} value={data.i} 
+                                    <option key={i} value={data.i}
                                     // {...register('name')}
                                     >
                                         {data.name}

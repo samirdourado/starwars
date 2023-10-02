@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styles from './styles.module.scss'
 import Image from 'next/image';
 import { usePlanetContext } from '@/contexts/planetContext';
@@ -12,8 +12,11 @@ import { LuClapperboard } from 'react-icons/lu';
 const CardPlanet = () => {
     const { planet, setPlanet, resident, setResident, films, setFilms, getResidentsFromPlanets, getFilms } = usePlanetContext();    
     
-    getResidentsFromPlanets(planet.planetInfo.residents)
-    getFilms(planet.planetInfo.films)
+    useEffect(() => {
+        getResidentsFromPlanets(planet.planetInfo.residents)
+        getFilms(planet.planetInfo.films)        
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
 
     return (
         <div className={styles.box}>
@@ -52,7 +55,17 @@ const CardPlanet = () => {
                     </main>
                 ) : (<p>Carregando...</p>)
             }
-            <Link href={'#'} onClick={() => {(setPlanet(null), setResident([]), setFilms([]))}} className={styles.backButton}>Voltar</Link>
+            <Link 
+                href={'#'} 
+                onClick={() => {(
+                    setPlanet(null), 
+                    setResident([]), 
+                    setFilms([])
+                )}} 
+                className={styles.backButton}
+            >
+                Voltar
+            </Link>
         </div>
     )
 };
