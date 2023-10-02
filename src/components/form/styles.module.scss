@@ -1,0 +1,103 @@
+@use 'abstracts' as *;
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    max-width: 800px;
+    
+
+    @media (max-width: 849px) {
+        padding: 45px 25px;
+    }
+    
+    @media (min-width: 850px) {
+        padding: 90px 45px;
+    }
+};
+
+.container__title {
+    @include text-style-font-main;
+    color: $color-white;
+    text-align: center;
+};
+
+.formArea {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+};
+
+.formArea > input {
+    width: 100%;
+    height: 40px;
+    border-radius: 5px;
+    border: none;    
+    text-align: center;
+    @include text-style-font-lato14-400;
+    color: $color-gray;
+    background-color: $color-white;
+};
+
+.formArea > button {
+    width: 100%;
+    height: 40px;
+    border-radius: 5px;
+    border: none;
+    text-align: center;
+    @include text-style-font-lato14-400;    
+    color: $color-white;
+    background-color: $color-red;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+};
+
+
+.formArea__footer {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+};
+
+.formArea__footer > p {
+    @include text-style-font-lato16-700;
+    color: $color-white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px
+};
+
+.formArea__footer > select {
+    @include text-style-font-lato16-700;
+    color: $color-white;
+    background-color: transparent;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+};
+
+.formArea__footer > select > option {
+    @include text-style-font-lato16-700;
+    color: $color-black;
+    background-color: transparent;
+    border: none;    
+    gap: 8px;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+};
+
