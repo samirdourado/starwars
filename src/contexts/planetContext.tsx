@@ -15,6 +15,10 @@ interface planetProviderData {
     setAllPlanets: React.Dispatch<React.SetStateAction<never[]>>;
     planet: iPlanetData | null;
     setPlanet: React.Dispatch<React.SetStateAction<iPlanetData | null>>;
+    resident: [];
+    setResident: React.Dispatch<React.SetStateAction<[]>>;
+    films: any;
+    setFilms: React.Dispatch<React.SetStateAction<[]>>;
     searchText: string;
     setSearchText: React.Dispatch<React.SetStateAction<string>>;
     searchResult: null;
@@ -23,6 +27,8 @@ interface planetProviderData {
     setOnLoad: React.Dispatch<React.SetStateAction<boolean>>;
     getAllPlanets: () => Promise<any>;
     getEspecificPlanet: (name: string) => Promise<any>;
+    getResidentsFromPlanets: (allResidents: [string]) => void;
+    getFilms: (allFilms: [string]) => Promise<any[]>;
 };
 
 const planetContext = createContext<planetProviderData>({} as planetProviderData);
@@ -30,6 +36,8 @@ const planetContext = createContext<planetProviderData>({} as planetProviderData
 export const PlanetProvider = ({ children }: Props) => {
     const [allPlanets, setAllPlanets] = useState([]);
     const [planet, setPlanet] = useState<iPlanetData | null>(null);
+    const [resident, setResident] = useState<[] | any>([]);
+    const [films, setFilms] = useState<[] | any>([]);
     const [searchText, setSearchText] = useState('');
     const [searchResult, setSearchResult] = useState(null);
     const [onLoad, setOnLoad] = useState(false);
@@ -55,8 +63,11 @@ export const PlanetProvider = ({ children }: Props) => {
 
     const getEspecificPlanet = async (planetName: string) => {
         
-        try {            
-            const planetPositionArr = allPlanets.findIndex((elem: any, i: any) => elem.name == planetName);
+        try {
+            let namePlanet = planetName;
+            namePlanet = namePlanet.charAt(0).toUpperCase() + namePlanet.slice(1);
+
+            const planetPositionArr = allPlanets.findIndex((elem: any, i: any) => elem.name == namePlanet);
             const numberOfPlanet = planetPositionArr + 1;
             const response = await apiPlanets.get(`/planets/${numberOfPlanet}`);
 
@@ -79,17 +90,53 @@ export const PlanetProvider = ({ children }: Props) => {
         };
     };
 
+    const getResidentsFromPlanets = async (allResidents: [string]) => {
+        try {
+            const residentsNames = [];
+
+            for (const resident of allResidents) {
+                const response = await axios.get(resident);
+                residentsNames.push(response.data.name);
+            };
+
+            setResident(residentsNames);
+            return residentsNames;
+        } catch (error) {            
+            return['No residents']
+        }
+    };
+
+    const getFilms = async (allFilms: [string]) => {
+        try {
+            const filmsNames = [];
+
+            for (const films of allFilms) {                
+                const response = await axios.get(films);
+                filmsNames.push(response.data.title);
+            };
+
+            setFilms(filmsNames);
+            return filmsNames;            
+        } catch (error) {            
+            return['No films']
+        }
+    };
+
 
     return (
         <planetContext.Provider
             value={{
                 planet, setPlanet,
                 allPlanets, setAllPlanets,
+                resident, setResident,
+                films, setFilms,
                 searchText, setSearchText,
                 searchResult, setSearchResult,
                 onLoad, setOnLoad,
                 getAllPlanets,
                 getEspecificPlanet,
+                getResidentsFromPlanets,
+                getFilms,
             }}
         >
             { children }

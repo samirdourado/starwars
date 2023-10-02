@@ -20,8 +20,6 @@ const ContainerMain = () => {
           />
 
           { planet === null ? (<Main/>) : (<CardPlanet/>) }
-
-          {/* <CardPlanet/> */}
       </section>
     )
 };

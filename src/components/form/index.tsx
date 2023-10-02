@@ -15,11 +15,9 @@ const Form = () => {
 
     });
 
-    const onFormSubmit = (formData: any) => {
-        let namePlanet = formData.value;
-        namePlanet = namePlanet.charAt(0).toUpperCase() + namePlanet.slice(1);
-        getEspecificPlanet(namePlanet);
-        // getEspecificPlanet(formData.value)
+    const onFormSubmit = (formData: any) => {        
+        getEspecificPlanet(formData.value);
+        
     };
 
     return (
